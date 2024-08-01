@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import requests
 
 app = Flask(__name__)
-API_KEY = 'f7f9afd4ce42103863ceed10f3278e0c'
+API_KEY = 'your-api-key'
 
 cities=[{"name": "Austin", "id":4671654},{"name": "San Diego", "id": 5392171}] #'Houston', 'Dallas', 'New York', 'Palo Alto', 'Sacramento', 'Georgetown','Manchester','West Haven']
 
