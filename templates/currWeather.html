@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+    <body>
+        <div class=title><h1>{{ weather.name }}</h1></div>
+        <div class="weatherInfo">
+            {% if weather.weather[0].main == "Clear" %}
+            <div class="weatherImage">
+            <img src="{{ url_for('static', filename='images/sun.png') }}" width="300px">
+            </div>
+            {% else if weather.weather[0].main == "broken clouds%}
+            <img src="{{ url_for('static', filename='images/brokenClouds.png') }}" width="300px">
+            {% endif %}
+        {% if weather %}
+            <h2>{{ weather.main.temp }} °C</h2>
+            <p>{{ weather.weather[0].description }}</p>
+        {% else %}
+            <p>No weather data available.</p>
+        {% endif %}
+        </div>
+    </body>
+</html>
