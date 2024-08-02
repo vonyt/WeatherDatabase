@@ -19,5 +19,30 @@
             <p>No weather data available.</p>
         {% endif %}
         </div>
+
+            <div class="scroll-container">
+                <div class="weatherDetail">
+                    <h2>Feels like</h2>
+                    <p>{{ weather.main.feels_like }} °C</p>
+                </div>
+                <div class="weatherDetail">
+                    <h2>Max temp</h2>
+                    <p>{{ weather.main.temp_max }}</p>
+                </div>
+                <div class="weatherDetail">
+                    <h2>Min temp</h2>
+                    <p>{{ weather.main.temp_min }}</p>
+                </div>
+                <div class="weatherDetail">
+                    <h2>humidity</h2>
+                    <p>{{ weather.main.humidity }}</p>
+                </div>
+                <div class="weatherDetail">
+                    <h2>Visibility</h2>
+                    <p>{{ weather.visibility }}</p>
+                </div>
+
+        </div>
+
     </body>
 </html>
