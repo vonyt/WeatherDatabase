@@ -8,15 +8,10 @@
     <body>
         <div class=title><h1>{{ weather.name }}</h1></div>
         <div class="weatherInfo">
-            {% if weather.weather[0].main == "Clear" %}
             <div class="weatherImage">
-            <img src="{{ url_for('static', filename='images/sun.png') }}" width="300px">
+            <!-- <img src="{{ url_for('static', filename='images/sun.png') }}" width="300px">!-->
+            <img src="{{ weatherIcon }}" width="300px">
             </div>
-            {% elif weather.weather[0].main == "broken clouds" %}
-            <div class="weatherImage">
-                <img src="{{ url_for('static', filename='images/brokenClouds') }}" witdh="300px">
-            </div>
-            {% endif %}
         {% if weather %}
             <h2>{{ weather.main.temp }} °C</h2>
             <p>{{ weather.weather[0].description }}</p>
