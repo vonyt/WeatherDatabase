@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
     <body>
+        <div class="header">
+            <a href="/" class="backButton"><img src="/static/images/backArrow.png" width="90px"></a>
         <div class=title><h1>{{ weather.name }}</h1></div>
+        </div>
         <div class="weatherInfo">
             <div class="weatherImage">
             <!-- <img src="{{ url_for('static', filename='images/sun.png') }}" width="300px">!-->
-            <img src="{{ weatherIcon }}" width="300px">
+            <img src="{{ weatherIcon }}" width="400px">
             </div>
         {% if weather %}
             <h2>{{ weather.main.temp }} °C</h2>
@@ -26,23 +29,46 @@
                     <p>{{ weather.main.feels_like }} °C</p>
                 </div>
                 <div class="weatherDetail">
-                    <h2>Max temp</h2>
+                    <h2>Max</h2>
                     <p>{{ weather.main.temp_max }}</p>
                 </div>
                 <div class="weatherDetail">
-                    <h2>Min temp</h2>
+                    <h2>Min</h2>
                     <p>{{ weather.main.temp_min }}</p>
                 </div>
                 <div class="weatherDetail">
-                    <h2>humidity</h2>
+                    <h2>Sunrise</h2>
+                    <p>{{ weather.sys.sunrise }}</p>
+                </div>
+                <div class="weatherDetail">
+                    <h2>Sunset</h2>
+                    <p>{{ weather.sys.sunset }}</p>
+                </div>
+                <div class="weatherDetail">
+                    <h2>Pressure</h2>
+                    <p>{{ weather.main.pressure }}</p>
+                </div>
+                <div class="weatherDetail">
+                    <h2>Humidity</h2>
                     <p>{{ weather.main.humidity }}</p>
                 </div>
                 <div class="weatherDetail">
                     <h2>Visibility</h2>
                     <p>{{ weather.visibility }}</p>
                 </div>
-
         </div>
 
+        <div class="forecast-scroller">
+                    {% for day in daycast %}
+                    <div class="weatherDetail">
+                        {% set date = day.date[5:7] ~ '/' ~ day.date[8:10] %}
+                        <p>{{ date }}</p>
+                        <img src="http://openweathermap.org/img/wn/{{ day.icon }}@2x.png" width="90px">
+                        <p>Max: {{ day.temp_max }} °C</p>
+                        <p>Min: {{ day.temp_min }} °C</p>
+                        <p>{{ day.description }}</p>
+                    </div>
+                    {% endfor %}
+            </div>
     </body>
 </html>
