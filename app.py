@@ -15,7 +15,7 @@ def weatherInCity(city_id):
 
 	foundCity=requests.get(weatherAPI)
 	if not foundCity.ok:
-		print(f"Sorry, this cities weather is not available")
+		print(f"Sorry, this city's weather is not available")
 		return None
 	return foundCity.json()
 
