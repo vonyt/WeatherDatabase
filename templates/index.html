@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
 <body>
-   <div class= title><h1> Weather API</h1></div>
-    <form action="/currWeather" method="POST">
-        <label for="city">Select a city:</label>
-        <select name="city" id="city">
+   <div class="indexTitle"><h1>Weather Detector</h1></div>
+    <form action="/currWeather" method="POST" id="cityChoice">
+        <label for="city">Choose a city:</label>
+        <select name="city" id="city" onchange="document.getElementById('cityChoice').submit();">
             {% for city in cities %}
             <option value="{{ city.name }}">{{ city.name }}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="Get Weather">
     </form>
 </body>
 </html>
