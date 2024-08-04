@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="/static/style.css">
     </head>
 <body>
+    <div class="indexBody">
    <div class="indexTitle"><h1>Weather Detector</h1></div>
     <form action="/currWeather" method="POST" id="cityChoice">
         <label for="city">Choose a city:</label>
@@ -13,5 +14,6 @@
             {% endfor %}
         </select>
     </form>
+    </div>
 </body>
 </html>
