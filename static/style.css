@@ -5,12 +5,10 @@
 }
 
 body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 0 15px;
 }
 
@@ -23,16 +21,15 @@ body {
 }
 
 .indexTitle {
+    padding: 15px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url('/static/images/cloudsbackground.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
-    font-size: 1.2em;
     text-align: center;
     justify-content: center;
     width: 100%;
     color: white;
-    margin-bottom: 300px;
+    margin-bottom: 20px;
 }
 
 form{
@@ -48,6 +45,7 @@ label {
 
 select {
     font-size: 1.2em;
+    padding: 10px;
 }
 
 .title {
@@ -89,24 +87,36 @@ select {
     overflow-x: auto;
     justify-content:center;
     background-color: white;
-    width: 50%;
-
-    margin-bottom: 20px;
-}
-
-.weatherDetail {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 60%;
+    padding: 15px;
 }
 
 .forecast-scroller {
     display: flex;
     overflow-x: auto;
-    justify-content:center;
-    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(205, 204, 204);
+    padding: 10px 0;
+}
+
+.weatherDetail {
+    text-align: center;
     background-color: white;
-    width: 70%;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+.forecastDetail {
+    text-align: center;
+    background-color: white;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+.weatherDetail h2 {
+    font-size: 1em;
+}
+
+.weatherDetail p {
+    font-size: 0.9em;
 }
