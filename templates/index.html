@@ -5,8 +5,10 @@
     </head>
 <body>
     <div class="indexBody">
+    <!-- Displays title -->
    <div class="indexTitle"><h1>Weather Detector</h1></div>
     <form action="/currWeather" method="POST" id="cityChoice">
+        <!-- Dropdown menu of city with available weather data -->
         <label for="city">Choose a city:</label>
         <select name="city" id="city" onchange="document.getElementById('cityChoice').submit();">
             {% for city in cities %}
