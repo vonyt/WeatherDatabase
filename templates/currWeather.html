@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
     <body>
+        <!-- Title and back button controller -->
         <div class="header">
             <a href="/" class="backButton"><img src="/static/images/backArrow.png" width="90px"></a>
         <div class=title><h1>{{ weather.name }}</h1></div>
         </div>
+        <!-- Cycles through/displays .json information containing the weather details for the users chosen city -->
         <div class="weatherInfo">
             <div class="weatherImage">
-            <!-- <img src="{{ url_for('static', filename='images/sun.png') }}" width="300px">!-->
             <img src="{{ weatherIcon }}" width="400px">
             </div>
         {% if weather %}
@@ -22,7 +23,6 @@
             <p>No weather data available.</p>
         {% endif %}
         </div>
-
             <div class="scroll-container">
                 <div class="weatherDetail">
                     <h2>Feels like</h2>
@@ -57,7 +57,7 @@
                     <p>{{ weather.visibility }}</p>
                 </div>
         </div>
-
+        <!-- Cycles through/displays the .json information containing the next 5 days weather forecast for users chosen city -->
         <div class="forecast-scroller">
                     {% for day in daycast %}
                     <div class="weatherDetail">
