@@ -19,7 +19,7 @@ def weatherInCity(city_id):
 	forecast=requests.get(weatherForecast)
 
 	if not foundCity.ok:
-		print(f"Sorry, this cities weather is not available")
+		print(f"Sorry, this city's weather is not available")
 		return None, None
 	if not forecast.ok:
 		print(f"Sorry, the future forecast of this city is not available")
