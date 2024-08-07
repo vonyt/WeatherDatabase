@@ -5,7 +5,7 @@ from datetime import datetime
 app = Flask(__name__)
 API_KEY = 'f7f9afd4ce42103863ceed10f3278e0c'
 
-#A dictionary list of cities with avaiable weather data
+#A dictionary list of cities with available weather data
 cities=[{"name":"Albuquerque","id":5454711},{"name":"Austin","id":4671654},{"name":"Athens","id":264371},{"name":"Baltimore","id":4366164},{"name":"Berlin","id":2950159},{"name":"Buenos Aires","id":3435910},{"name":"Cape Town","id":3369157},{"name":"Chicago","id":4887398},{"name":"Dallas","id":4684888},{"name":"Dhaka","id":1185241},{"name":"Florence","id":3176957},{"name":"Havana","id":3562981},{"name":"Helsinki","id":658225},{"name":"Highland Park","id":4697616},{"name":"Hong Kong","id":1819729},{"name":"Istanbul","id":745044},{"name":"Lagos","id":2332452},{"name":"London","id":2643743}, {"name":"Miami","id":4164138},{"name":"Minneapolis","id":5037649},{"name":"New York","id":5128581},{"name":"Oslo","id":3143244},{"name":"Quito","id":3652462},{"name":"Rome","id":3169030},{"name":"Sacramento","id":5392173},{"name":"San Jose","id":5392171},{"name":"Seoul","id":1835848},{"name":"Toronto","id":6167864},{"name":"Zurich","id":2657896}]
 
 #Route for home page
@@ -48,14 +48,14 @@ def currWeather():
 		details=cast['main'] #Extracts the 'main' section from the json to retrieve temperature details
 		weather=cast['weather'][0] #Extracts the first line from the 'weather' section to retrieve the description 
 
-		#Adds each new day with its retrieved details to the daycast forecast list if the day does not exist, if it does it's details are updated
+		#Adds each new day with its retrieved details to the daycast forecast list if the day does not exist, if it does its details are updated
 		if date not in daycast:
 			daycast[date] = {'temp_max':details['temp_max'],'temp_min':details['temp_min'], 'description': weather['description'], 'icon': weather['icon']}
 		else:
 			daycast[date]['temp_max']=max(daycast[date]['temp_max'],details['temp_max'])
 			daycast[date]['temp_min']=min(daycast[date]['temp_min'],details['temp_min'])
-	#Creates a formatted list of dictionaries from the original daycast dictionary. The **data creates the new dictionary using the key-value pairs in the original daycast dictionary.
-	#The newly formatted list is sorted by date, so each date has it's proper details merged with it.
+	#Creates a formatted list of dictionaries from the original daycast dictionary. The **data creates the new dictionary using the key-value pairs in the original daycast dictionary
+	#The newly formatted list is sorted by date, so each date has its proper details merged with it
 	daycaster=[{'date': date, **data} for date, data in daycast.items()]
 	#Converts sunrise and sunset times into readable time (HH:MM)
 	sunrise=datetime.fromtimestamp(cityWeather['sys']['sunrise']).strftime('%I:%M %p') 
